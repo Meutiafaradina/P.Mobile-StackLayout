@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Penjelasan Kode Kivy</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Times Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      background: linear-gradient(to bottom, #f0f4f8, #e8ecf2);
+      color: #333;
+      padding: 30px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .code-block {
+      background-color: #ffe6ef; 
+      border-left: 6px solid #e75480;
+      padding: 20px;
+      margin: 30px auto;
+      max-width: 900px;
+      font-family: Consolas, monospace;
+      font-size: 0.95em;
+      border-radius: 10px;
+      white-space: pre-wrap;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow-x: auto;
+    }
+
+    .explanation {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 900px;
+      margin: 30px auto;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .line-number {
+      font-weight: bold;
+      color: #e75480;
+      margin-right: 8px;
+    }
+
+    p {
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pemrograman Mobile</h1>
+  <h1>Kode Kivy(StackLayout)</h1> <br>
+  <h2>Kode Python: </h2>
+  <div class="code-block">
+from kivy.uix.button import Button
+from kivy.uix.stacklayout import StackLayout
+class myApp(App):
+    def build(self):
+        s_layout= StackLayout(orientation='rl-bt')
+        btn1=Button(text='btn1', size_hint=(0.2, 0.2))
+        btn2=Button(text='btn2', size_hint=(0.2, 0.2))
+        btn3=Button(text='btn3', size_hint=(0.2, 0.2))
+        btn4=Button(text='btn4', size_hint=(0.2, 0.2))
+        s_layout.add_widget(btn1)
+        s_layout.add_widget(btn2)
+        s_layout.add_widget(btn3)
+        s_layout.add_widget(btn4)
+        return s_layout
+myApp().run()
+  </div>
+
+  <h2>Penjelasannya: </h2>
+  <div class="explanation">
+    <div class="card">
+      <span class="line-number">1</span> <strong>Import Button</strong>
+      <p>Mengimpor <code>Button</code> dari <code>kivy.uix.button</code>. Kelas ini menyediakan widget tombol yang bisa ditekan untuk interaksi pengguna.</p>
+    </div>
+
+    <div class="card">
+      <span class="line-number">2</span> <strong>Import StackLayout</strong>
+      <p>Mengimpor <code>StackLayout</code>, layout manager yang secara otomatis menumpuk dan melayout widget sesuai orientasi (horizontal/vertical, dll.).</p>
+    </div>
+
+    <div class="card">
+      <span class="line-number">3</span> <strong>Definisi kelas myApp</strong>
+      <p>Membuat kelas <code>myApp</code> yang merupakan turunan dari <code>App</code>, yang menjadi entry point utama aplikasi Kivy.</p>
+    </div>
+
+    <div class="card">
+      <span class="line-number">4</span> <strong>Metode build()</strong>
+      <p>Fungsi utama yang wajib diimplementasi. Mengembalikan root widget yang akan dirender ke layar saat aplikasi dijalankan.</p>
+    </div>
+
+    <div class="card">
+      <span class="line-number">5</span> <strong>Buat StackLayout</strong>
+      <p>Instansiasi <code>StackLayout</code> dengan orientasi 'rl-bt' (right-to-left, bottom-to-top) untuk mengatur aliran widget.</p>
+    </div>
+
+    <div class="card">
+      <span class="line-number">6</span> <strong>Buat Button 1</strong>
+      <p>Membuat tombol dengan teks 'btn1', ukuran relatif 20% dari kontainer untuk lebar dan tinggi.</p>
+    </div>
+
+    <div class="card">
+      <span class="line-number">7</span> <strong>Buat Button 2</strong>
+      <p>Button kedua dengan teks 'btn2', ukuran sama untuk konsistensi desain.</p>
+    </div>
+
+    <div class="card">
+      <span class="line-number">8</span> <strong>Buat Button 3</strong>
+      <p>Button ketiga dengan teks 'btn3'. Layout akan mengatur penempatannya sesuai orientasi StackLayout.</p>
+    </div>
+
+    <div class="card">
+      <span class="line-number">9</span> <strong>Buat Button 4</strong>
+      <p>Button keempat dengan teks 'btn4'. Semua tombol dibuat seragam untuk tata letak yang rapi.</p>
+    </div>
+
+    <div class="card">
+      <span class="line-number">10-13</span> <strong>Tambah ke Layout</strong>
+      <p>Keempat tombol ditambahkan ke <code>s_layout</code> satu per satu dengan <code>add_widget()</code>, yang menentukan urutan dan posisi di layout.</p>
+    </div>
+
+    <div class="card">
+      <span class="line-number">14</span> <strong>Kembalikan Layout</strong>
+      <p>Mengembalikan <code>s_layout</code> ke Kivy sebagai root widget aplikasi. Layout inilah yang akan dirender di window aplikasi.</p>
+    </div>
+
+    <div class="card">
+      <span class="line-number">15</span> <strong>Jalankan Aplikasi</strong>
+      <p>Memanggil <code>myApp().run()</code> untuk memulai event loop Kivy dan menampilkan GUI ke pengguna.</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; Meutia Faradina (2211036)
+  </footer>
+</body>
+</html>
